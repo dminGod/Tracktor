@@ -1,0 +1,74 @@
+//package main
+//
+//import (
+//	"fmt"
+//	"github.com/abiosoft/ishell"
+//	"os"
+//	"./config"
+//	//"time"
+//	"./requests"
+//	"strings"
+//)
+//
+//func main() {
+//
+//	fmt.Println("Hi Buddy!!")
+//	shell := ishell.New()
+//	shell.SetPrompt("buddy>")
+//	shell.Register("greet",greet)
+//	shell.Register("start",start)
+//	shell.Register("stop",stop)
+//	shell.Start()
+//}
+//
+//func greet(args ...string) (string,error) {
+//
+//
+//	return "Ay Ay Captain",nil
+//}
+//
+//
+//func start(args ...string) (string,error) {
+//
+//	return toggle(args, "start")
+//}
+//
+//
+//func stop(args ...string) (string,error) {
+//
+//	return toggle(args, "stop")
+//}
+//
+//
+//
+//func toggle(args []string,logType string) (string,error) {
+//
+//
+//	// Get the hosts config from the conf.json
+//	hosts := config.Get_hosts()
+//	_ = hosts
+//	comment := ""
+//	if len(args) == 1 {
+//		comment = args[0]
+//	}
+//
+//	// Loop over all the hosts
+//	for  ind, host := range hosts {
+//		_ = ind// kachara
+//
+//
+//		f, err := os.OpenFile(requests.LogDirectory + host+".dat", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
+//		var info string = strings.ToUpper(logType) + " >>>> " + comment
+//		if _, err = f.WriteString(info+"\n\n\n"); err != nil {
+//			panic(err)
+//		}
+//	}
+//
+//	if logType == "start" {
+//		return "STARTED", nil
+//	} else if logType == "stop" {
+//		return "STOPPED",nil
+//	} else {
+//		return "Something done", nil
+//	}
+//}

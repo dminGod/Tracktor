@@ -1,0 +1,5 @@
+.idea/*
+.idea
+*.swp
+~*
+disperf_log.iml
