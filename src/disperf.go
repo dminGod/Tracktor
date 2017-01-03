@@ -197,10 +197,6 @@ func main() {
 		stop_hosts()
 	}
 
-
-	// go func(){ for i := 0; i < 300; i++ {time.Sleep(time.Second); fmt.Println(".") } }()  // Dummy ToDO: Remove this...
-
-
 }
 
 
@@ -254,11 +250,12 @@ func start_hosts()  {
 						 if len(curTests.Tests) > 0 {
 
 							 // Get the result for this host
+							hostResponse := requests.Get_Response(&host,&context_variable);
 
 							// Write to as many files as needed by the tests..
 							for _, item := range curTests.Tests {
 
-								requests.Log_Write(&host, &context_variable, ff[host + "_" + item.file_name])
+								requests.Log_Write(&hostResponse, ff[host + "_" + item.file_name])
 							}
 						 } else {
 
